@@ -18,12 +18,21 @@ public class SmoothFading : MonoBehaviour
 
 	private void Update()
 	{
-		Fade();
+		if (Object != null)
+		{
+			Fade();
+		}
 	}
 
 	private void Fade()
 	{
-		FadingColor.a = 1 - (Object.transform.position - transform.position).magnitude / FadingDistance;
+		FadingColor.a = 1 - FadingFunction(Object.transform.position - transform.position);
+		Debug.Log(FadingColor.a);
 		Sprite.color = FadingColor;
+	}
+
+	private float FadingFunction(Vector3 x)
+	{
+		return 0.5f * Mathf.Pow(x.magnitude / FadingDistance, 2);
 	}
 }
