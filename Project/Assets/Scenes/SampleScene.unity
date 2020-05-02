@@ -778,7 +778,7 @@ GameObject:
   - component: {fileID: 439621761}
   - component: {fileID: 439621763}
   m_Layer: 0
-  m_Name: Interact (1)
+  m_Name: FadingObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -858,7 +858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78476434f2d05949803ef8b2c1a3caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 1319521789}
+  Object: {fileID: 0}
   FadingDistance: 4
 --- !u!1 &519420028
 GameObject:
