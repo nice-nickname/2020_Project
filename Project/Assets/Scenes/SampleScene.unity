@@ -858,7 +858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78476434f2d05949803ef8b2c1a3caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 0}
+  Object: {fileID: 1319521789}
   FadingDistance: 4
 --- !u!1 &519420028
 GameObject:
@@ -2138,6 +2138,7 @@ MonoBehaviour:
   NormalSpeed: 2
   SpeedMultiplier: 1.5
   JumpForce: 4
+  FallingDownScale: 1.05
 --- !u!50 &1319521793
 Rigidbody2D:
   serializedVersion: 4
@@ -2784,6 +2785,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075283712901527198, guid: fb85a193502e7b445a7dbd121466e269,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075283712901527199, guid: fb85a193502e7b445a7dbd121466e269,
+        type: 3}
+      propertyPath: FallingDownScale
+      value: 1.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb85a193502e7b445a7dbd121466e269, type: 3}
