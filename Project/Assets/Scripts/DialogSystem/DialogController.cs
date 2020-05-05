@@ -12,11 +12,11 @@ public class DialogController : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		Dialog.StartTalk();
+		Dialog.HoldPosition();
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
-		Dialog.HoldPosition();
 		if (Input.GetButtonDown("Interact") && Dialog.IsCreated)
 		{
 			Dialog.Talk();
