@@ -16,7 +16,15 @@ public class FadingUI : MonoBehaviour
 		Image.color = FadingColor;
 	}
 
-	public IEnumerator Fade()
+	public void OnActionDisabled()
+	{
+		if (Image != null)
+		{
+			StartCoroutine(Fade());
+		}
+	}
+
+	private IEnumerator Fade()
 	{
 		for (float f = 1f; f > -0.1; f -= FadingSpeed)
 		{
