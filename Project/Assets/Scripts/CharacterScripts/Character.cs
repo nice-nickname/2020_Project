@@ -5,13 +5,14 @@ public class Character : MonoBehaviour, IDamageReceiver, IMovable
 	[SerializeField] private float NormalSpeed = 0f;
 	[SerializeField] private float SpeedMultiplier = 0f;
 	[SerializeField] private float JumpForce = 0f;
+	[SerializeField] private float FallingDownScale = 0f;
 
 	private Rigidbody2D RBody;
 
 	private Quaternion RightFlip;
 	private Quaternion LeftFlip;
 
-	public int Health { get; private set; } = 100;
+	public Health Health { get; private set; }
 
 	private bool Grounded
 	{
@@ -41,6 +42,16 @@ public class Character : MonoBehaviour, IDamageReceiver, IMovable
 
 		RightFlip = new Quaternion(0f, 0f, 0f, 0f);
 		LeftFlip = new Quaternion(0f, 180f, 0f, 0f);
+
+		Health = new Health(100);
+	}
+
+	private void FixedUpdate()
+	{
+		if(RBody.velocity.y < 0)
+		{
+			RBody.velocity *= FallingDownScale;
+		}
 	}
 
 	public void Move(float direction)
@@ -59,16 +70,9 @@ public class Character : MonoBehaviour, IDamageReceiver, IMovable
 
 	public void ReceiveDamage(int damage)
 	{
-		Health -= damage;
-		Debug.Log(Health + "/100 здоровья осталось");
-		if (Health <= 0)
-			KillMe();
-	}
-
-	public void KillMe()
-	{
-		Health = 0;
-		Destroy(this.gameObject);
+		Health.UpdateValue(damage);
+		if (!Health.Alive())
+			Destroy(gameObject);
 	}
 
 	private void TurnCharacter(float direction)

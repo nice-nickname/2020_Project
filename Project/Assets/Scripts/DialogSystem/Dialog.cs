@@ -10,6 +10,7 @@ public class Dialog : MonoBehaviour
 	[SerializeField] private Text Text = null;
 	[SerializeField] private float CooldownTime = 0f;
 	[SerializeField] private float AppearanceSpeed = 0f;
+	[SerializeField] private bool ReReadable = false;
 
 	private Queue<string> Sentenses;
 	private Vector3 OffSet = new Vector3(0f, 1.5f, -3f);
@@ -31,6 +32,11 @@ public class Dialog : MonoBehaviour
 
 	public void StartTalk()
 	{
+		if(ReReadable)
+		{
+			Sentenses = new Queue<string>(DialogAsset.Sentenses);
+			Sentenses.Dequeue();
+		}
 		Text.text = "";
 		IsCreated = true;
 	}

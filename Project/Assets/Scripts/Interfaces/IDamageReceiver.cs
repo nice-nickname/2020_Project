@@ -1,7 +1,5 @@
 ﻿public interface IDamageReceiver
 {
-	int Health { get; }
+	Health Health { get; }
 	void ReceiveDamage(int damage);
-	void KillMe();
-
 }
