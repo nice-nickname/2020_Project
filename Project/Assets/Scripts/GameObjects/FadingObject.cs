@@ -24,8 +24,11 @@ public class FadingObject : MonoBehaviour
 
 	private void Fade()
 	{
-		FadingColor.a = FadingFunction((Object.transform.position - transform.position).magnitude/FadingDistance);
-		Sprite.color = FadingColor;
+		if ((Object.transform.position.y <= transform.position.y + 2f) && (Object.transform.position.y >= transform.position.y - 2f))
+		{
+			FadingColor.a = FadingFunction((Object.transform.position - transform.position).magnitude / FadingDistance);
+			Sprite.color = FadingColor;
+		}
 	}
 
 	private float FadingFunction(float x)
