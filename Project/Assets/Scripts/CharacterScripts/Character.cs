@@ -12,6 +12,9 @@ public class Character : MonoBehaviour, IDamageReceiver, IMovable
 	private Quaternion RightFlip;
 	private Quaternion LeftFlip;
 
+	private Animator Animator;
+	private State State;
+
 	public Health Health { get; private set; }
 
 	private bool Grounded
@@ -39,6 +42,9 @@ public class Character : MonoBehaviour, IDamageReceiver, IMovable
 	private void Awake()
 	{
 		RBody = GetComponent<Rigidbody2D>();
+		Animator = GetComponent<Animator>();
+
+		State = State.Idle;
 
 		RightFlip = new Quaternion(0f, 0f, 0f, 0f);
 		LeftFlip = new Quaternion(0f, 180f, 0f, 0f);
@@ -48,9 +54,30 @@ public class Character : MonoBehaviour, IDamageReceiver, IMovable
 
 	private void FixedUpdate()
 	{
-		if(RBody.velocity.y < 0)
+		if (RBody.velocity.y < 0)
 		{
 			RBody.velocity *= FallingDownScale;
+		}
+	}
+
+	private void Update()
+	{
+		if (State == State.Walk)
+		{
+			if (RBody.velocity.x == 0f)
+			{
+				State = State.Idle;
+				Animator.Play("Idle");
+			}
+		}
+
+		if (State == State.Idle)
+		{
+			if (RBody.velocity.x != 0)
+			{
+				State = State.Walk;
+				Animator.Play("ggwalk");
+			}
 		}
 	}
 
@@ -58,6 +85,8 @@ public class Character : MonoBehaviour, IDamageReceiver, IMovable
 	{
 		RBody.velocity = new Vector2(direction * Speed, RBody.velocity.y);
 		TurnCharacter(direction);
+
+
 	}
 
 	public void Jump()
@@ -86,4 +115,10 @@ public class Character : MonoBehaviour, IDamageReceiver, IMovable
 			transform.rotation = RightFlip;
 		}
 	}
+}
+
+public enum State
+{
+	Walk,
+	Idle
 }
