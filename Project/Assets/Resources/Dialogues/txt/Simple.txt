@@ -1,6 +1,4 @@
-﻿Roy Batty;
-0 I've seen things you people wouldn't believe.
-0 Attack ships on fire off the shoulder of Orion.
-0 I watched C-beams glitter in the dark near the Tannhäuser Gate.
-0 All those moments will be lost in time, like tears in rain. 
-0 Time to die.
+﻿Имя_Персонажа;Имя_Героя;
+0 Привет!
+0 Как дела?
+1 Привет. Нормально.

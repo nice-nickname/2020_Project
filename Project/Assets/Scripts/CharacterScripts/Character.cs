@@ -76,7 +76,7 @@ public class Character : MonoBehaviour, IDamageReceiver, IMovable
 			if (RBody.velocity.x != 0)
 			{
 				State = State.Walk;
-				Animator.Play("ggwalk");
+				Animator.Play("Walk");
 			}
 		}
 	}
