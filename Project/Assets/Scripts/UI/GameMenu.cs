@@ -9,6 +9,7 @@ public class GameMenu : MonoBehaviour
 	private void Awake()
 	{
 		Parent = GetComponent<Canvas>();
+		Parent.enabled = false;
 	}
 
 	private void Update()
