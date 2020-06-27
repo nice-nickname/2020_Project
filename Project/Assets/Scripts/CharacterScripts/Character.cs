@@ -85,8 +85,6 @@ public class Character : MonoBehaviour, IDamageReceiver, IMovable
 	{
 		RBody.velocity = new Vector2(direction * Speed, RBody.velocity.y);
 		TurnCharacter(direction);
-
-
 	}
 
 	public void Jump()

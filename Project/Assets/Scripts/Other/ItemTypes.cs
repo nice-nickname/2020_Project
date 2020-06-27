@@ -1,5 +1,5 @@
 ﻿
-public enum ItemTypes
+public enum ItemTypes : byte
 { 
 	NULL
 }
