@@ -22,21 +22,4 @@ public class ItemPresenter : MonoBehaviour
 			}
 		}
 	}
-
-	public void Render(List<Item> items)
-	{
-		Item[] _items = items.ToArray();
-
-		int length = _items.Length;
-
-		if (_items.Length > Cells.Length)
-		{
-			length = Cells.Length;
-		}
-
-		for (int i = 0; i < length; i++)
-		{
-			Cells[i].showItem(_items[i]);
-		}
-	}
 }
