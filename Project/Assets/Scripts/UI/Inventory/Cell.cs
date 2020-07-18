@@ -6,46 +6,41 @@ public class Cell : MonoBehaviour
 {
 	[SerializeField] private Item Item;
 	[SerializeField] private Sprite __deafault;
-	[SerializeField] private Vector3 Position = Vector3.zero;
 
 	private Image Image;
+	private Button Click;
+	private RectTransform Rect;
+
 	private ItemEventArgs _Args;
-	private Button Button;
 
 	public bool IsActive { get; private set; } = false;
 
 	private void Awake()
 	{
-
-		Button = GetComponent<Button>();
+		Click = GetComponent<Button>();
 		Image = GetComponent<Image>();
+		Rect = GetComponent<RectTransform>();
 
 		__deafault = Image.sprite;
 	}
 
-	public void showItem(Item _item)
+	public void setItem(Item _item)
 	{
 		Item = _item;
 		IsActive = true;
 		Image.sprite = Item.Icon;
-		
-		_Args = new ItemEventArgs(_item.Description, _item.Name, _item.Icon, Position, () => {
-			ItemDescriptionCanvas.instance.Hide();
-			this.showDefault();
-		});
 
-		Button.onClick.AddListener(OnClick);
+		_Args = new ItemEventArgs(_item.Description, _item.Name, _item.Icon, null);
+
+		Click.onClick.AddListener(ShowDescription);
 	}
 
-	public void showDefault()
+	public void setDefault()
 	{
 		Item = null;
 		Image.sprite = __deafault;
 		IsActive = false;
 	}
 
-	public void OnClick()
-	{
-		ItemDescriptionCanvas.instance.Show(_Args);
-	}
+	public void ShowDescription() => ItemDescriptionCanvas.instance.Show(this._Args);
 }

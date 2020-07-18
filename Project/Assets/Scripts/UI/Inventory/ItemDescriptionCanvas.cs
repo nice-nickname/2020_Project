@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public class ItemDescriptionCanvas : MonoBehaviour
 {
-	private Canvas Canvas;
 	private Text Content;
 	private Button Button;
+	private RectTransform RTransform;
 
 	public static ItemDescriptionCanvas instance;
 
@@ -20,23 +20,21 @@ public class ItemDescriptionCanvas : MonoBehaviour
 			Destroy(gameObject);
 		}
 
-
-		Canvas = GetComponent<Canvas>();
-		Content = Canvas.GetComponentInChildren<Text>();
-		Button = Canvas.GetComponentInChildren<Button>();
-		Canvas.enabled = false;
+		Content = GetComponentInChildren<Text>();
+		Button = GetComponentInChildren<Button>();
 	}
 
 	public void Show(ItemEventArgs args)
 	{
+		Vector3 newpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+		transform.position = new Vector3(newpos.x, newpos.y, 0f);
 		Content.text = args.Description;
-		Content.transform.position = args.Position;
-		Canvas.enabled = true;
 	}
 
 	public void Hide()
 	{
-		Canvas.enabled = false;
+		transform.position = new Vector3(100000f, 100000f, 0f);
 		Content.text = "Null";
 	}
 }

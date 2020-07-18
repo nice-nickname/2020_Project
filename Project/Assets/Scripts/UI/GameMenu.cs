@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class GameMenu : MonoBehaviour
 {
-	private Canvas Parent;
+	private Canvas Canvas;
 
 	private void Awake()
 	{
-		Parent = GetComponent<Canvas>();
-		Parent.enabled = false;
+		Canvas = GetComponent<Canvas>();
+		Canvas.enabled = false;
 	}
 
 	private void Update()
 	{
 		if (Input.GetButtonDown("Open"))
 		{
-			Parent.enabled = !Parent.enabled;
+			Canvas.enabled = !Canvas.enabled;
+			ItemDescriptionCanvas.instance.Hide();
 		}
 	}
 

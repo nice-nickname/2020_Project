@@ -17,9 +17,11 @@ public class ItemPresenter : MonoBehaviour
 		{
 			if (!cell.IsActive)
 			{
-				cell.showItem(_item);
+				cell.setItem(_item);
 				return;
 			}
 		}
 	}
+
+	public static Vector3 StartPoint = Vector3.zero;
 }

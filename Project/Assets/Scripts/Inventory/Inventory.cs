@@ -27,8 +27,11 @@ public class Inventory : MonoBehaviour
 
 	public void AddItem(Item _item)
 	{
-		Items.Add(_item);
-		ItemUI.Append(_item);
+		if (_item != null && ItemUI != null)
+		{
+			Items.Add(_item);
+			ItemUI.Append(_item);
+		}
 	}
 
 	public void RemoveItem(Item _item)
