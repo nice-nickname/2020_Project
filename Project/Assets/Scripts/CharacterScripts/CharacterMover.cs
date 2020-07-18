@@ -16,7 +16,7 @@ public class CharacterMover : MonoBehaviour
 
 		if (Input.GetButtonDown("Open"))
 		{
-			Inventory.instance.Show();
+			// Inventory button here
 		}
 	}
 
