@@ -5,7 +5,6 @@ public class ItemDescriptionCanvas : MonoBehaviour
 {
 	private Text Content;
 	private Button Button;
-	private RectTransform RTransform;
 
 	public static ItemDescriptionCanvas instance;
 
