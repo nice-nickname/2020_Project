@@ -4,12 +4,14 @@ using UnityEngine.UI;
 public class Cell : MonoBehaviour
 {
 	[SerializeField] private Item Item;
-	[SerializeField] private Sprite __deafault;
+	[SerializeField] private Sprite _default;
 
 	private Image Image;
 	private Button Click;
 
-	private ItemEventArgs _Args;
+	private ItemEventArgs Args;
+
+	private Color OldColor, NewColor;
 
 	public bool IsActive { get; private set; } = false;
 
@@ -18,7 +20,11 @@ public class Cell : MonoBehaviour
 		Click = GetComponent<Button>();
 		Image = GetComponent<Image>();
 
-		__deafault = Image.sprite;
+		OldColor = Image.color;
+		NewColor = OldColor;
+		NewColor.a = 1f;
+
+		_default = Image.sprite;
 	}
 
 	public void setItem(Item _item)
@@ -26,8 +32,9 @@ public class Cell : MonoBehaviour
 		Item = _item;
 		IsActive = true;
 		Image.sprite = Item.Icon;
+		Image.color = NewColor;
 
-		_Args = new ItemEventArgs(_item.Description, _item.Name, _item.Icon, setDefault);
+		Args = new ItemEventArgs(_item.Description, _item.Name, _item.Icon, setDefault);
 
 		Click.onClick.AddListener(ShowDescription);
 	}
@@ -36,9 +43,14 @@ public class Cell : MonoBehaviour
 	{
 		Inventory.instance.RemoveItem(Item.Name);
 		Item = null;
-		Image.sprite = __deafault;
+		Image.sprite = _default;
+		Image.color = OldColor;
 		IsActive = false;
 	}
 
-	public void ShowDescription() => ItemDescriptionCanvas.instance.Show(this._Args);
+	public void ShowDescription()
+	{
+		if (IsActive)
+			ItemDescriptionCanvas.instance.Show(Args);
+	}
 }
