@@ -20,6 +20,4 @@ public class ItemPresenter : MonoBehaviour
 			}
 		}
 	}
-
-	public static Vector3 StartPoint = Vector3.zero;
 }

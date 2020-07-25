@@ -34,8 +34,9 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
-	public void RemoveItem(Item _item)
+	public void RemoveItem(string itemName)
 	{
-		Items.Remove(_item);
+		Item i = Items.Find(item => item.Name.Equals(itemName));
+		if (i) Items.Remove(i);
 	}
 }

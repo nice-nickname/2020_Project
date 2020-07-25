@@ -8,7 +8,6 @@ public class Cell : MonoBehaviour
 
 	private Image Image;
 	private Button Click;
-	private RectTransform Rect;
 
 	private ItemEventArgs _Args;
 
@@ -18,7 +17,6 @@ public class Cell : MonoBehaviour
 	{
 		Click = GetComponent<Button>();
 		Image = GetComponent<Image>();
-		Rect = GetComponent<RectTransform>();
 
 		__deafault = Image.sprite;
 	}
@@ -29,13 +27,14 @@ public class Cell : MonoBehaviour
 		IsActive = true;
 		Image.sprite = Item.Icon;
 
-		_Args = new ItemEventArgs(_item.Description, _item.Name, _item.Icon, null);
+		_Args = new ItemEventArgs(_item.Description, _item.Name, _item.Icon, setDefault);
 
 		Click.onClick.AddListener(ShowDescription);
 	}
 
 	public void setDefault()
 	{
+		Inventory.instance.RemoveItem(Item.Name);
 		Item = null;
 		Image.sprite = __deafault;
 		IsActive = false;
