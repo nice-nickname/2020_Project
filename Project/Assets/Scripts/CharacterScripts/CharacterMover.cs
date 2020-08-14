@@ -13,11 +13,6 @@ public class CharacterMover : MonoBehaviour
 	private void Update()
 	{
 		Direction = Input.GetAxisRaw("Horizontal");
-
-		if (Input.GetButtonDown("Open"))
-		{
-			// Inventory button here
-		}
 	}
 
 	private void FixedUpdate()

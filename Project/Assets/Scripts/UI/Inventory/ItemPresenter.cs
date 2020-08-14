@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class ItemPresenter : MonoBehaviour
 {
@@ -22,6 +20,4 @@ public class ItemPresenter : MonoBehaviour
 			}
 		}
 	}
-
-	public static Vector3 StartPoint = Vector3.zero;
 }

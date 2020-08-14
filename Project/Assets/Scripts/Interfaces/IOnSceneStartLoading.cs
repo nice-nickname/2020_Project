@@ -1,0 +1,4 @@
+﻿interface IOnSceneStartLoading
+{
+	void SceneLoad();
+}
