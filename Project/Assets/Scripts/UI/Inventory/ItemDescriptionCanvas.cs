@@ -39,6 +39,7 @@ public class ItemDescriptionCanvas : MonoBehaviour
 
 		ToErase.onClick.AddListener(args.Click);
 		ToErase.onClick.AddListener(Hide);
+		ToErase.onClick.AddListener(() => { Inventory.instance.RemoveItem(args.Name); });
 	}
 
 	public void Hide()

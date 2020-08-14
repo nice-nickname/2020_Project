@@ -41,7 +41,6 @@ public class Cell : MonoBehaviour
 
 	public void setDefault()
 	{
-		Inventory.instance.RemoveItem(Item.Name);
 		Item = null;
 		Image.sprite = _default;
 		Image.color = OldColor;
