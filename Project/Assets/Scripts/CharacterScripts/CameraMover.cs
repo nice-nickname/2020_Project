@@ -3,9 +3,15 @@
 public class CameraMover : MonoBehaviour
 {
 	[Range(0f, 2f)] [SerializeField] private float SmoothTime = 0f;
-	[SerializeField] private Transform Target = null;
+
+	private Transform Target;
 
 	private Vector3 Useless;
+
+	private void Awake()
+	{
+		Target = GameObjectHandler.instance.CameraTarget;
+	}
 
 	private void LateUpdate()
 	{
