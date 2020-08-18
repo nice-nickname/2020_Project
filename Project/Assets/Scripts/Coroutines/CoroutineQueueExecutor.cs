@@ -29,4 +29,9 @@ public class CoroutineQueueExecutor : MonoBehaviour
 			}
 		}
 	}
+
+	public void PushCoroutine(ICoroutinedTask Task)
+	{
+		Tasks.Enqueue(new Coroutine(Task));
+	}
 }

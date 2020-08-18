@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 
-class Coroutine
+public class Coroutine
 {
 	public TaskStatus Status { get; private set; }
 
 	private ICoroutinedTask TaskHandler;
 
-	public Coroutine(ICoroutinedTask _class)
+	public Coroutine(ICoroutinedTask _taskHandler)
 	{
-		TaskHandler = _class;
+		TaskHandler = _taskHandler;
 		Status = TaskStatus.Waiting;
 	}
 
@@ -16,22 +16,13 @@ class Coroutine
 	{
 		Status = TaskStatus.Executed;
 
-		while (true)
+		while (TaskHandler.TaskFinished() == false)
 		{
-			if (TaskHandler.Ended() == false)
-			{
-				TaskHandler.Task();
-				yield return null;
-			}
-			else
-			{
-				break;
-			}
+			TaskHandler.Task();
+			yield return null;
 		}
 
 		Status = TaskStatus.Finished;
 		yield break;
 	}
-
-
 }

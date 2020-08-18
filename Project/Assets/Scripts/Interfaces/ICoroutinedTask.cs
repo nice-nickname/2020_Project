@@ -2,5 +2,5 @@
 public interface ICoroutinedTask
 {
 	void Task();
-	bool Ended();
+	bool TaskFinished();
 }
