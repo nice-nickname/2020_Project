@@ -3,8 +3,14 @@ using UnityEngine;
 
 public class Fonts : MonoBehaviour, IOnSceneStartLoading
 {
-	[SerializeField] private Font Font = null;
 	[SerializeField][Range(0f,5f)] private float FontSizeMultiplier = 0;
+
+	private Font Font;
+
+	private void Awake()
+	{
+		Font = GameObjectHandler.instance.Font;
+	}
 
 	public void SceneLoad()
 	{
