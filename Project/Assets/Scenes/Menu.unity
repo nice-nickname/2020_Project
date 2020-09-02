@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 19638567}
   - component: {fileID: 19638566}
   - component: {fileID: 19638565}
+  - component: {fileID: 19638569}
   - component: {fileID: 19638568}
   m_Layer: 0
   m_Name: Main Camera
@@ -208,6 +209,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SmoothTime: 0.07
+--- !u!114 &19638569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19638564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3e4fba049ac254fafee730a8901300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  From: {x: 0, y: 0, z: -10}
+  To: {x: 20, y: 0, z: -10}
+  Direction: {x: 1, y: 0, z: 0}
 --- !u!1 &21267578
 GameObject:
   m_ObjectHideFlags: 0
@@ -5932,6 +5948,7 @@ GameObject:
   - component: {fileID: 1539775285}
   - component: {fileID: 1539775287}
   - component: {fileID: 1539775288}
+  - component: {fileID: 1539775289}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -5993,6 +6010,19 @@ MonoBehaviour:
   _dialogTextField: {fileID: 0}
   _Font: {fileID: 12800000, guid: 52c1ac3e6f16c8349b3edce3dedda111, type: 3}
   _CameraTarget: {fileID: 1627193381}
+--- !u!114 &1539775289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539775284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60a1357b10f7884286533c327fbd68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoroutinedTasksObjects: []
 --- !u!1 &1542523879
 GameObject:
   m_ObjectHideFlags: 0

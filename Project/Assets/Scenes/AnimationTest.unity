@@ -682,6 +682,8 @@ GameObject:
   - component: {fileID: 371174781}
   - component: {fileID: 371174780}
   - component: {fileID: 371174788}
+  - component: {fileID: 371174790}
+  - component: {fileID: 371174789}
   m_Layer: 0
   m_Name: wlk
   m_TagString: Untagged
@@ -871,6 +873,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b60a1357b10f7884286533c327fbd68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &371174789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371174779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169ecdd1f9b07724298e3600e331301b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &371174790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371174779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cedb88a649998e3489971395e1c720ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &477013258
@@ -3935,7 +3961,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.050729785, g: 0.075026676, b: 0.11320752, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}

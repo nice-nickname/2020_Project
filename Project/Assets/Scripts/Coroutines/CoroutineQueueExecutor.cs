@@ -3,12 +3,19 @@ using UnityEngine;
 
 public class CoroutineQueueExecutor : MonoBehaviour
 {
+	[SerializeField] private List<GameObject> CoroutinedTasksObjects;
+
 	private Queue<Coroutine> Tasks;
 	private Coroutine Current;
 
 	private void Awake()
 	{
 		Tasks = new Queue<Coroutine>();
+
+		foreach (var obj in CoroutinedTasksObjects)
+		{
+			PushCoroutine(obj.GetComponent<ICoroutinedTask>());
+		}
 	}
 
 	void Update()
