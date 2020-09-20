@@ -7,7 +7,7 @@ public class Fonts : MonoBehaviour, IOnSceneStartLoading
 
 	private Font Font;
 
-	private void Awake()
+	private void Start()
 	{
 		Font = GameObjectHandler.instance.Font;
 	}
