@@ -8,7 +8,7 @@ public class CameraMover : MonoBehaviour
 
 	private Vector3 Useless;
 
-	private void Awake()
+	private void Start()
 	{
 		Target = GameObjectHandler.instance.CameraTarget;
 	}

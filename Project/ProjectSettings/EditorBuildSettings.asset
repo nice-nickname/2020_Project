@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 545de996b3e11db48aa2acba0c9696fa
   - enabled: 1
-    path: Assets/Scenes/Roofs.unity
-    guid: 6283c891b13afed439fc3766c9b0c1e0
+    path: Assets/Scenes/WelcomeScene.unity
+    guid: 693d747b5e199b8498160a08224fb1a5
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: c25671f4bb4cc324db9346fe27526662
   m_configObjects: {}
