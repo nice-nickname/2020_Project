@@ -10,11 +10,6 @@ public class WaitForSecond : MonoBehaviour, ICoroutinedTask
 
 	private bool Finished = false;
 
-	private void Awake()
-	{
-		StartTime = Time.time;
-	}
-
 	public void Task()
 	{
 		if (StartTime == 0)

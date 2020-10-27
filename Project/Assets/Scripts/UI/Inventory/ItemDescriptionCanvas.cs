@@ -32,9 +32,8 @@ public class ItemDescriptionCanvas : MonoBehaviour
 
 	public void Show(ItemEventArgs args)
 	{
-		Vector3 newpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		gameObject.SetActive(true);
 
-		transform.position = new Vector3(newpos.x, newpos.y, 0f);
 		Content.text = args.Description;
 
 		ToErase.onClick.AddListener(args.Click);
@@ -44,7 +43,7 @@ public class ItemDescriptionCanvas : MonoBehaviour
 
 	public void Hide()
 	{
-		transform.position = new Vector3(100000f, 100000f, 0f);
+		gameObject.SetActive(false);
 		Content.text = "Null";
 		ToErase.onClick.RemoveAllListeners();
 	}

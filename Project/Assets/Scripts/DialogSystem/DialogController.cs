@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogController : MonoBehaviour
 {
+	[SerializeField] private string Promt = "F, чтобы говорить с персонажем";
+
 	private Dialog Dialog;
 
 	private void Awake()
@@ -17,6 +20,7 @@ public class DialogController : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
+		HelpOnTriggerEvent.instance.SetText(Promt);
 		if (Input.GetButtonDown("Interact") && Dialog.IsCreated)
 		{
 			Dialog.Talk();
@@ -25,6 +29,7 @@ public class DialogController : MonoBehaviour
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
+		HelpOnTriggerEvent.instance.Unset();
 		Dialog.EndTalking();
 	}
 }

@@ -9,11 +9,13 @@ public class ItemTrigger : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		PlayerInArea = true;
+		HelpOnTriggerEvent.instance.SetText("F, чтобы подобрать предмет");
 	}
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
 		PlayerInArea = false;
+		HelpOnTriggerEvent.instance.Unset();
 	}
 
 	private void Update()
